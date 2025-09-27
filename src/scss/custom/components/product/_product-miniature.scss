@@ -5,9 +5,13 @@ $component-name: product-miniature;
 
   .card {
     transition: 0.25s ease-out;
+    background-color: darken($dark-background, 3%);
+    border: 1px solid $royal-purple;
 
     &:hover {
-      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+      border-color: $neon-blue;
+      box-shadow: 0 0 15px rgba($neon-blue, 0.5);
+      filter: none;
     }
   }
 
@@ -47,23 +51,34 @@ $component-name: product-miniature;
   & &__title {
     margin-bottom: 0;
     font-size: 1rem;
+    color: var(--bs-white);
+    a {
+      color: inherit;
+      transition: color 0.3s ease;
+      &:hover {
+        color: $neon-blue;
+      }
+    }
   }
 
   & &__regular-price {
-    color: var(--bs-gray-700);
+    color: var(--bs-gray-600);
+    text-decoration: line-through;
   }
 
   & &__price {
-    font-weight: 600;
+    font-weight: 700;
+    color: $toxic-green;
   }
 
   & &__quickview {
     position: absolute;
     top: 0;
-    z-index: -1;
+    z-index: 1;
     width: 100%;
     padding: 0.5rem;
-    background-color: var(--bs-white);
+    background-color: rgba($royal-purple, 0.8);
+    backdrop-filter: blur(5px);
     transition: 0.25s ease-out;
 
     @media (hover: none) and (pointer: coarse) {
@@ -80,10 +95,18 @@ $component-name: product-miniature;
     font-size: 1rem;
     text-decoration: none;
     border: 0;
+    background-color: transparent;
+    color: var(--bs-white);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 
     .material-icons {
       margin-right: 0.25rem;
       font-size: 1.25rem;
+    }
+
+    &:hover {
+      color: $toxic-green;
+      text-shadow: 0 0 5px $toxic-green;
     }
   }
 
@@ -98,10 +121,11 @@ $component-name: product-miniature;
     width: 2.5rem;
     min-width: 2.5rem;
     height: 2.5rem;
-    background-color: #fff;
-    border: none;
+    background-color: $royal-purple;
+    border: 1px solid $neon-blue;
     border-radius: 50%;
     box-shadow: 0.125rem -0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
+    color: $neon-blue;
 
     @media (hover: none) and (pointer: coarse) {
       display: flex;
@@ -117,6 +141,15 @@ $component-name: product-miniature;
       > a {
         flex-shrink: 0;
         margin: 0;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        border: 1px solid $royal-purple;
+        transition: border-color 0.3s ease;
+
+        &:hover {
+          border-color: $neon-blue;
+        }
       }
     }
   }

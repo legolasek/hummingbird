@@ -4,8 +4,9 @@ $component-name: header-bottom;
   --header-top-border-bottom: #{$header-top-border-bottom};
   --header-bottom-border-bottom: #{$header-bottom-border-bottom};
 
-  padding: 0;
+  padding: 1rem 0;
   border-bottom: var(--header-bottom-border-bottom);
+  background-color: $dark-background;
 
   .navbar-brand {
     max-width: 250px;
@@ -15,6 +16,41 @@ $component-name: header-bottom;
     .logo {
       width: auto;
       max-height: inherit;
+      filter: drop-shadow(0 0 5px $neon-blue);
+    }
+  }
+
+  #search_widget {
+    .form-control {
+      background-color: darken($dark-background, 5%);
+      border-color: $royal-purple;
+      color: var(--bs-white);
+
+      &:focus {
+        border-color: $neon-blue;
+        box-shadow: 0 0 10px $neon-blue;
+      }
+    }
+
+    .btn {
+      color: $neon-blue;
+      &:hover {
+        color: $toxic-green;
+      }
+    }
+  }
+
+  #_desktop_cart {
+    .cart-preview-toggle {
+      color: var(--bs-white);
+      .cart-products-count {
+        background-color: $toxic-green;
+        color: $dark-background;
+        font-weight: bold;
+      }
+      &:hover {
+        color: $neon-blue;
+      }
     }
   }
 

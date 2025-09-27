@@ -1,7 +1,7 @@
 $component-name: footer;
-$footer-background-color: #16181c !default;
-$footer-heading-color: var(--bs-white) !default;
-$footer-text-color: var(--bs-body-color) !default;
+$footer-background-color: darken($dark-background, 5%) !default;
+$footer-heading-color: $neon-blue !default;
+$footer-text-color: var(--bs-gray-400) !default;
 
 .#{$component-name} {
   --footer-background-color: #{$footer-background-color};
@@ -13,6 +13,7 @@ $footer-text-color: var(--bs-body-color) !default;
     padding-top: 2.5rem;
     padding-bottom: 1.25rem;
     background: var(--footer-background-color);
+    border-top: 1px solid $royal-purple;
   }
 
   & &-top {
@@ -27,6 +28,14 @@ $footer-text-color: var(--bs-body-color) !default;
     &,
     a {
       color: var(--bs-white);
+    }
+  }
+
+  a {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    &:hover {
+      color: $toxic-green;
+      text-shadow: 0 0 5px rgba($toxic-green, 0.7);
     }
   }
 

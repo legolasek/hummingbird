@@ -31,6 +31,25 @@ $font-family-sans-serif: 'Orbitron', sans-serif;
 $headings-font-family: 'Orbitron', sans-serif;
 $display-font-family: 'Orbitron', sans-serif;
 
+// Inputs and forms overrides
+$input-bg: darken($dark-background, 5%);
+$input-color: var(--bs-white);
+$input-border-color: $royal-purple;
+$input-placeholder-color: var(--bs-gray-600);
+$input-focus-border-color: $neon-blue;
+$input-focus-box-shadow: 0 0 10px rgba($neon-blue, 0.7);
+$form-check-input-bg: darken($dark-background, 10%);
+$form-check-input-border: 1px solid $royal-purple;
+$form-check-input-checked-bg-color: $toxic-green;
+$form-check-input-checked-border-color: $toxic-green;
+$form-select-bg: darken($dark-background, 5%);
+$form-select-color: var(--bs-white);
+$form-select-border-color: $royal-purple;
+$form-select-indicator-color: $neon-blue;
+$form-select-focus-border-color: $neon-blue;
+$form-select-box-shadow: 0 0 10px rgba($neon-blue, 0.7);
+
+
 // Breakpoints
 $grid-breakpoints: (
   "xxs": 0,

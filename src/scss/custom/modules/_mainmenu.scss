@@ -12,6 +12,15 @@
       > a {
         padding: 1.5rem 1rem;
         outline-offset: -0.5rem;
+        color: var(--bs-white);
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+
+        &:hover {
+          color: $neon-blue;
+          text-shadow: 0 0 7px $neon-blue;
+        }
       }
 
       &:hover {
@@ -28,8 +37,9 @@
         z-index: $zindex-offcanvas;
         display: none;
         padding: 1rem 0;
-        background-color: var(--bs-white);
-        border-top: 1px solid var(--bs-gray-200);
+        background-color: $dark-background;
+        border-top: 1px solid $neon-blue;
+        box-shadow: 0 5px 15px rgba($royal-purple, 0.2);
 
         &.focusing,
         &:focus-within {
@@ -45,17 +55,31 @@
 
           &[data-depth="1"] {
             font-weight: 600;
-            color: $dropdown-link-color;
+            color: var(--bs-white);
+            transition: color 0.3s ease;
+
 
             &:hover {
               &,
               i {
-                color: var(--bs-primary);
+                color: $toxic-green;
               }
             }
 
             &::after {
               display: none;
+            }
+          }
+
+          &[data-depth="2"] {
+            color: var(--bs-gray-400);
+            transition: color 0.3s ease;
+
+            &:hover {
+              &,
+              i {
+                color: $neon-blue;
+              }
             }
           }
         }
