@@ -1,19 +1,19 @@
 $component-name: footer;
-$footer-background-color: darken($dark-background, 5%) !default;
-$footer-heading-color: $neon-blue !default;
-$footer-text-color: var(--bs-gray-400) !default;
 
 .#{$component-name} {
-  --footer-background-color: #{$footer-background-color};
-  --footer-text-color: #{$footer-text-color};
-  --footer-hover-color: var(--bs-white);
-  --footer-heading-color: #{$footer-heading-color};
+  --footer-background-color: lighten($pesteczka-dark, 2%);
+  --footer-text-color: var(--pesteczka-gray);
+  --footer-hover-color: var(--pesteczka-light);
+  --footer-heading-color: var(--pesteczka-blue);
 
   & &__main {
     padding-top: 2.5rem;
     padding-bottom: 1.25rem;
     background: var(--footer-background-color);
-    border-top: 1px solid $royal-purple;
+    border-top: 2px solid;
+    border-image-slice: 1;
+    border-width: 2px;
+    border-image-source: var(--pesteczka-gradient-main);
   }
 
   & &-top {
@@ -31,12 +31,8 @@ $footer-text-color: var(--bs-gray-400) !default;
     }
   }
 
-  a {
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-    &:hover {
-      color: $toxic-green;
-      text-shadow: 0 0 5px rgba($toxic-green, 0.7);
-    }
+  .copyright a:hover {
+    color: var(--pesteczka-blue);
   }
 
   h2,
@@ -45,120 +41,85 @@ $footer-text-color: var(--bs-gray-400) !default;
   .h4 {
     margin-bottom: 1.5rem;
     font-size: 1rem;
+    color: var(--footer-heading-color);
 
     &,
     a {
-      // stylelint-disable-next-line
-      text-transform: inherit !important;
-    }
-  }
-
-  @include media-breakpoint-down(md) {
-    .copyright {
-      font-size: 0.875rem;
+      text-transform: uppercase !important;
+      letter-spacing: 1px;
     }
   }
 
   & &__block {
-
     &__content {
       padding-top: 0.5rem;
       color: var(--footer-text-color);
     }
 
-    @include media-breakpoint-down(md) {
-      &__content {
-        font-size: 0.875rem;
-      }
-    }
-
     &__content-list {
-
       margin-bottom: 0;
-
       a {
         display: block;
-        padding: 0.25rem;
-        padding-left: 0;
+        padding: 0.25rem 0;
         color: var(--footer-text-color);
-        transition: 0.25s ease-out;
+        transition: all 0.3s ease;
 
         &:hover {
           color: var(--footer-hover-color);
+          transform: translateX(5px);
         }
 
         &.logout {
           color: #d5343c;
         }
-
       }
-
-      @include media-breakpoint-down(md) {
-        a {
-          padding: 0.5rem;
-          padding-left: 0;
-        }
-      }
-
     }
 
     &__content-contact {
       a {
         color: var(--footer-text-color);
-
         &:hover {
           color: var(--footer-hover-color);
         }
       }
-
       .contact__infos {
         margin-bottom: 1rem;
       }
-
-      .contact__phone,
-      .contact__fax {
-        margin-bottom: 0.5rem;
-      }
-
       > div:last-child {
         margin-bottom: 0;
       }
-
       .contact__infos,
       .contact__phone,
       .contact__fax,
       .contact__email {
         display: flex;
         align-items: center;
-
         i {
           margin-right: 0.5rem;
+          color: var(--pesteczka-blue);
         }
       }
     }
 
     &__title {
       font-size: 1rem;
-      font-weight: 600;
-
-      &,
-      a {
+      font-weight: 700;
+      &, a {
         color: var(--footer-heading-color);
       }
     }
-
-    @include media-breakpoint-up(md) {
-      &__title {
-        margin-bottom: 1.25rem;
-      }
-    }
-
-    @include media-breakpoint-down(md) {
-      &:last-child {
-        margin-bottom: 2rem;
-      }
-    }
-
   }
+}
 
+// Social follow icons styling
+#social_block {
+  ul li a {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: var(--pesteczka-gray);
+    &:hover {
+      transform: translateY(-3px);
+      color: var(--pesteczka-blue);
+    }
+  }
 }

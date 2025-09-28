@@ -10,16 +10,33 @@
 
     > li {
       > a {
+        position: relative;
         padding: 1.5rem 1rem;
         outline-offset: -0.5rem;
-        color: var(--bs-white);
+        color: var(--pesteczka-light);
         text-transform: uppercase;
         font-weight: 500;
-        transition: color 0.3s ease, text-shadow 0.3s ease;
+        transition: color 0.3s ease;
 
-        &:hover {
-          color: $neon-blue;
-          text-shadow: 0 0 7px $neon-blue;
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 1rem;
+          left: 1rem;
+          right: 1rem;
+          height: 2px;
+          background-color: var(--pesteczka-blue);
+          transform: scaleX(0);
+          transform-origin: center;
+          transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        &:hover,
+        &.active {
+          color: var(--pesteczka-blue);
+          &::after {
+            transform: scaleX(1);
+          }
         }
       }
 
@@ -36,10 +53,11 @@
         left: 0;
         z-index: $zindex-offcanvas;
         display: none;
-        padding: 1rem 0;
-        background-color: $dark-background;
-        border-top: 1px solid $neon-blue;
-        box-shadow: 0 5px 15px rgba($royal-purple, 0.2);
+        padding: 1.5rem;
+        background-color: rgba(var(--pesteczka-dark-rgb), 0.7);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(var(--pesteczka-blue), 0.5);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 
         &.focusing,
         &:focus-within {
@@ -47,6 +65,14 @@
         }
 
         a {
+          padding: 0.5rem 0;
+          color: var(--pesteczka-gray);
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: var(--pesteczka-light);
+          }
+
           &[data-depth="1"],
           &[data-depth="2"] {
             overflow-wrap: break-word;
@@ -54,16 +80,12 @@
           }
 
           &[data-depth="1"] {
-            font-weight: 600;
-            color: var(--bs-white);
-            transition: color 0.3s ease;
-
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--pesteczka-light);
 
             &:hover {
-              &,
-              i {
-                color: $toxic-green;
-              }
+              color: var(--pesteczka-green);
             }
 
             &::after {
@@ -72,14 +94,11 @@
           }
 
           &[data-depth="2"] {
-            color: var(--bs-gray-400);
-            transition: color 0.3s ease;
+            font-weight: 400;
+            font-size: 0.9rem;
 
             &:hover {
-              &,
-              i {
-                color: $neon-blue;
-              }
+              color: var(--pesteczka-blue);
             }
           }
         }
@@ -87,4 +106,3 @@
     }
   }
 }
-

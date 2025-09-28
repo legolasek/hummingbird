@@ -4,32 +4,50 @@ $component-name: product-miniature;
   margin-bottom: 1.25rem;
 
   .card {
-    transition: 0.25s ease-out;
-    background-color: darken($dark-background, 3%);
-    border: 1px solid $royal-purple;
+    position: relative;
+    background-color: lighten($pesteczka-dark, 2%);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid var(--pesteczka-purple);
+      border-radius: 4px;
+      pointer-events: none;
+      transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
 
     &:hover {
-      border-color: $neon-blue;
-      box-shadow: 0 0 15px rgba($neon-blue, 0.5);
-      filter: none;
+      transform: translateY(-8px);
+      box-shadow: var(--pesteczka-shadow-blue);
+      &::before {
+        border-color: var(--pesteczka-blue);
+        box-shadow: inset 0 0 10px rgba(var(--pesteczka-blue-rgb), 0.5);
+      }
     }
   }
 
   &:hover {
     .#{$component-name}__quickview {
-      transform: translateY(-100%);
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 
   & &__image-container {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
-    transition: 0.25s ease-out;
   }
 
   & &__image {
-    transition: 0.25s ease-out;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
   & &__link {
@@ -40,46 +58,45 @@ $component-name: product-miniature;
       .#{$component-name}__image {
         transform: scale(1.1);
       }
-
-      .#{$component-name}__image-container {
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-      }
     }
   }
 
   & &__title {
     margin-bottom: 0;
     font-size: 1rem;
-    color: var(--bs-white);
+    color: var(--pesteczka-light);
     a {
       color: inherit;
       transition: color 0.3s ease;
       &:hover {
-        color: $neon-blue;
+        color: var(--pesteczka-blue);
       }
     }
   }
 
   & &__regular-price {
-    color: var(--bs-gray-600);
+    color: var(--pesteczka-gray);
     text-decoration: line-through;
+    font-size: 0.875rem;
   }
 
   & &__price {
     font-weight: 700;
-    color: $toxic-green;
+    font-size: 1.2rem;
+    color: var(--pesteczka-green);
   }
 
   & &__quickview {
     position: absolute;
     top: 0;
-    z-index: 1;
+    left: 0;
     width: 100%;
     padding: 0.5rem;
-    background-color: rgba($royal-purple, 0.8);
+    background-color: rgba(var(--pesteczka-dark-rgb), 0.7);
     backdrop-filter: blur(5px);
-    transition: 0.25s ease-out;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 
     @media (hover: none) and (pointer: coarse) {
       display: none;
@@ -96,8 +113,8 @@ $component-name: product-miniature;
     text-decoration: none;
     border: 0;
     background-color: transparent;
-    color: var(--bs-white);
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    color: var(--pesteczka-light);
+    transition: all 0.3s ease;
 
     .material-icons {
       margin-right: 0.25rem;
@@ -105,31 +122,13 @@ $component-name: product-miniature;
     }
 
     &:hover {
-      color: $toxic-green;
-      text-shadow: 0 0 5px $toxic-green;
+      color: var(--pesteczka-green);
+      text-shadow: 0 0 5px var(--pesteczka-green);
     }
   }
 
   & &__quickview_touch {
-    position: absolute;
-    right: 0.635rem;
-    bottom: 0.635rem;
-    z-index: 10;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    min-width: 2.5rem;
-    height: 2.5rem;
-    background-color: $royal-purple;
-    border: 1px solid $neon-blue;
-    border-radius: 50%;
-    box-shadow: 0.125rem -0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
-    color: $neon-blue;
-
-    @media (hover: none) and (pointer: coarse) {
-      display: flex;
-    }
+    display: none; // Disabled for a cleaner look
   }
 
   & &__variants {
@@ -137,6 +136,7 @@ $component-name: product-miniature;
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
+      margin-top: 0.5rem;
 
       > a {
         flex-shrink: 0;
@@ -144,11 +144,11 @@ $component-name: product-miniature;
         border-radius: 50%;
         width: 20px;
         height: 20px;
-        border: 1px solid $royal-purple;
+        border: 1px solid var(--pesteczka-purple);
         transition: border-color 0.3s ease;
 
         &:hover {
-          border-color: $neon-blue;
+          border-color: var(--pesteczka-blue);
         }
       }
     }
