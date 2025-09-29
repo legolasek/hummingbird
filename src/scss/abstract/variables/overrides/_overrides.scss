@@ -1,9 +1,92 @@
-// Bootstrap variables, maps overrides
+// Import Google Font
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
 
-// Breakpoints
+// =================================================================
+// Pesteczka Theme - Design System
+// =================================================================
+
+// -- SASS Color Variables (for Bootstrap functions)
+$pesteczka-purple: #7300ff;
+$pesteczka-blue: #00f2ff;
+$pesteczka-green: #9eff00;
+$pesteczka-dark: #1a1a2e;
+$pesteczka-light: #ffffff;
+$pesteczka-gray: #a0a0b0;
+
+// -- CSS Color Variables (for theme components)
+:root {
+  --pesteczka-purple: #{$pesteczka-purple};
+  --pesteczka-blue: #{$pesteczka-blue};
+  --pesteczka-green: #{$pesteczka-green};
+  --pesteczka-dark: #{$pesteczka-dark};
+  --pesteczka-dark-rgb: #{red($pesteczka-dark)}, #{green($pesteczka-dark)}, #{blue($pesteczka-dark)};
+  --pesteczka-blue-rgb: #{red($pesteczka-blue)}, #{green($pesteczka-blue)}, #{blue($pesteczka-blue)};
+  --pesteczka-light: #{$pesteczka-light};
+  --pesteczka-gray: #{$pesteczka-gray};
+
+  // -- Gradients
+  --pesteczka-gradient-main: linear-gradient(135deg, var(--pesteczka-purple), var(--pesteczka-blue));
+  --pesteczka-gradient-animated: linear-gradient(90deg, var(--pesteczka-purple), var(--pesteczka-blue), var(--pesteczka-green), var(--pesteczka-purple));
+
+  // -- Shadows
+  --pesteczka-shadow-blue: 0 0 15px rgba(0, 242, 255, 0.6);
+  --pesteczka-shadow-green: 0 0 15px rgba(158, 255, 0, 0.6);
+  --pesteczka-shadow-purple: 0 0 15px rgba(115, 0, 255, 0.6);
+}
+
+
+// =================================================================
+// Bootstrap Variable Overrides
+// =================================================================
+
+// -- Global Colors
+$primary: $pesteczka-purple;
+$secondary: $pesteczka-blue;
+$success: $pesteczka-green;
+$body-bg: $pesteczka-dark;
+$body-color: $pesteczka-light;
+
+// -- Theme Colors Map
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $pesteczka-blue,
+  "warning": #ffc107,
+  "danger": #dc3545,
+  "light": $pesteczka-light,
+  "dark": $pesteczka-dark
+);
+
+// -- Font Overrides
+$font-family-sans-serif: 'Orbitron', sans-serif;
+$headings-font-family: 'Orbitron', sans-serif;
+$display-font-family: 'Orbitron', sans-serif;
+
+// -- Inputs and Forms Overrides
+$input-bg: lighten($pesteczka-dark, 5%);
+$input-color: $pesteczka-light;
+$input-border-color: $pesteczka-purple;
+$input-placeholder-color: $pesteczka-gray;
+$input-focus-border-color: $pesteczka-blue;
+$input-focus-box-shadow: var(--pesteczka-shadow-blue);
+
+$form-check-input-bg: transparent;
+$form-check-input-border: 1px solid $pesteczka-purple;
+$form-check-input-checked-bg-color: $pesteczka-green;
+$form-check-input-checked-border-color: $pesteczka-green;
+
+$form-select-bg: lighten($pesteczka-dark, 5%);
+$form-select-color: $pesteczka-light;
+$form-select-border-color: $pesteczka-purple;
+$form-select-indicator-color: $pesteczka-blue;
+$form-select-focus-border-color: $pesteczka-blue;
+$form-select-box-shadow: var(--pesteczka-shadow-blue);
+
+// -- Breakpoints (keep as is)
 $grid-breakpoints: (
   "xxs": 0,
-  "xs": 360px, // Add breakpoint to give us flexibility on small devices
+  "xs": 360px,
   "sm": 576px,
   "md": 768px,
   "lg": 992px,

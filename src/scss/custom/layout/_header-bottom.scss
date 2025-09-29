@@ -1,20 +1,64 @@
 $component-name: header-bottom;
 
 .#{$component-name} {
-  --header-top-border-bottom: #{$header-top-border-bottom};
-  --header-bottom-border-bottom: #{$header-bottom-border-bottom};
-
-  padding: 0;
+  padding: 1rem 0;
   border-bottom: var(--header-bottom-border-bottom);
+  background-color: var(--pesteczka-dark);
 
   .navbar-brand {
     max-width: 250px;
     max-height: max(50px, 10vh);
     padding: 0;
+    transition: filter 0.3s ease;
 
     .logo {
       width: auto;
       max-height: inherit;
+      filter: drop-shadow(0 0 8px rgba(var(--pesteczka-blue-rgb), 0.5));
+    }
+
+    &:hover .logo {
+      filter: drop-shadow(0 0 15px var(--pesteczka-blue));
+    }
+  }
+
+  #search_widget {
+    .form-control {
+      background-color: rgba(var(--pesteczka-dark-rgb), 0.5);
+      border-color: var(--pesteczka-purple);
+      color: var(--pesteczka-light);
+      border-radius: 2px;
+
+      &:focus {
+        border-color: var(--pesteczka-blue);
+        box-shadow: var(--pesteczka-shadow-blue);
+      }
+    }
+
+    .btn {
+      color: var(--pesteczka-blue);
+      transition: color 0.3s ease;
+      &:hover {
+        color: var(--pesteczka-green);
+      }
+    }
+  }
+
+  #_desktop_cart {
+    .cart-preview-toggle {
+      color: var(--pesteczka-light);
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+      .cart-products-count {
+        background-color: var(--pesteczka-green);
+        color: var(--pesteczka-dark);
+        font-weight: bold;
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--pesteczka-shadow-green);
+      }
+      &:hover {
+        color: var(--pesteczka-blue);
+        text-shadow: 0 0 7px var(--pesteczka-blue);
+      }
     }
   }
 

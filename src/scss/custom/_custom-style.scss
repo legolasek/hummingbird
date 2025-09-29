@@ -1,0 +1,272 @@
+/* Header Styles */
+.header-top, .header-bottom {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-bottom {
+  background: var(--bg);
+  position: relative;
+  border-bottom: none; /* Remove default border to replace with pseudo-element */
+}
+
+.header-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-toxic);
+  animation: borderGlow 4s linear infinite;
+  opacity: 0.9;
+  box-shadow: var(--glow-toxic);
+}
+
+header.scrolled {
+  background: rgba(10, 10, 15, 0.95);
+  box-shadow: var(--shadow-lg), var(--glow-mixed);
+}
+
+.header-top a,
+.header-bottom a,
+.header-block__action-btn {
+  color: var(--text-muted);
+  transition: var(--transition-fast);
+}
+
+.header-top a:hover,
+.header-bottom a:hover,
+.header-block__action-btn:hover {
+  color: var(--toxic-green);
+  text-shadow: 0 0 8px var(--toxic-green);
+}
+
+.header-top .material-icons,
+.header-bottom .material-icons {
+  color: inherit;
+}
+
+.logo a {
+  transition: var(--transition);
+}
+
+.logo a:hover {
+  filter: drop-shadow(0 0 12px var(--neon-cyan));
+}
+
+@keyframes borderGlow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Product Miniature Styles */
+.product-miniature .card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+  overflow: hidden;
+  height: 100%;
+}
+
+.product-miniature .card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl), var(--glow-mixed);
+  border-color: var(--toxic-green);
+}
+
+.product-miniature__image-container {
+  overflow: hidden;
+}
+
+.product-miniature__image {
+  transition: transform var(--transition-slow);
+}
+
+.product-miniature:hover .product-miniature__image {
+  transform: scale(1.1);
+}
+
+.product-miniature__infos {
+  padding: 1rem;
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-miniature__infos__top {
+  flex-grow: 1;
+}
+
+.product-miniature__title a {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.product-miniature__title a:hover {
+  color: var(--toxic-green);
+  text-shadow: 0 0 5px var(--toxic-green);
+}
+
+.product-miniature__price {
+  color: var(--toxic-green);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.product-miniature__regular-price {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  text-decoration: line-through;
+}
+
+.product-miniature__quickview {
+  display: none; /* Hiding the default quickview button for a cleaner look */
+}
+
+/* Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: var(--gradient-toxic);
+  color: var(--bg) !important; /* Important to override theme colors */
+  box-shadow: var(--shadow-md), var(--glow-toxic);
+  border: 2px solid transparent;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: var(--shadow-lg), 0 0 30px var(--toxic-green);
+  border-color: var(--toxic-green);
+  background: var(--gradient-toxic); /* Ensure gradient remains on hover */
+}
+
+/* Mapping user's secondary button to theme's outline buttons */
+.btn-outline-secondary, .btn-link {
+  background: transparent;
+  color: var(--neon-cyan);
+  border: 2px solid var(--neon-cyan);
+  box-shadow: inset 0 0 0 0 var(--neon-cyan);
+  transition: all 0.3s;
+}
+
+.btn-outline-secondary:hover, .btn-link:hover {
+  box-shadow: inset 0 0 20px 0 var(--neon-cyan), var(--glow-cyan);
+  color: var(--text) !important;
+  background-color: transparent !important;
+  border-color: var(--neon-cyan) !important;
+  transform: translateY(-2px);
+}
+
+/* Footer Styles */
+.footer__main {
+  background: linear-gradient(180deg, var(--bg), var(--bg-secondary));
+  border-top: 1px solid var(--border);
+  padding: 80px 0 40px;
+  margin-top: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer__main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-neon);
+  animation: footerGlow 5s linear infinite;
+}
+
+.footer__main .row,
+.footer__main p,
+.footer__main li,
+.footer__main div {
+   color: var(--text-muted);
+}
+
+.footer__main h1, .footer__main h2, .footer__main h3, .footer__main h4, .footer__main h5, .footer__main h6,
+.footer__main .h1, .footer__main .h2, .footer__main .h3, .footer__main .h4, .footer__main .h5, .footer__main .h6,
+.footer__main .block-title,
+.footer__main .title {
+  color: var(--royal-purple);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.footer__main a {
+  color: var(--text-dim);
+  transition: var(--transition);
+}
+
+.footer__main a:hover {
+  color: var(--toxic-green);
+  text-shadow: 0 0 5px var(--toxic-green);
+}
+
+.copyright a {
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+.copyright a:hover {
+  color: var(--toxic-green) !important;
+  text-decoration: underline;
+}
+
+@keyframes footerGlow {
+  0%{
+    transform: translateX(-100%);
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100%{
+    transform: translateX(100%);
+    opacity: 0.5;
+  }
+}

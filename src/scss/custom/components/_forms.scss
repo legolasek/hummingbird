@@ -1,0 +1,99 @@
+// General form styling
+.form-control,
+.form-select {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 2px;
+}
+
+// Custom Checkbox and Radio buttons
+.form-check {
+  .form-check-input {
+    // Hide default input but keep it accessible
+    opacity: 0;
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: -1.5em;
+
+    & + .form-check-label {
+      position: relative;
+      padding-left: 2rem;
+      cursor: pointer;
+      user-select: none;
+
+      // Custom box
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1.25rem;
+        height: 1.25rem;
+        border: 1px solid var(--pesteczka-purple);
+        background-color: transparent;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      // Custom checkmark/dot
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0.4rem;
+        top: 50%;
+        width: 0.45rem;
+        height: 0.8rem;
+        border: solid var(--pesteczka-dark);
+        border-width: 0 3px 3px 0;
+        transform: translateY(-60%) rotate(45deg);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+    }
+
+    // Checked state
+    &:checked + .form-check-label {
+      &::before {
+        background-color: var(--pesteczka-green);
+        border-color: var(--pesteczka-green);
+        box-shadow: var(--pesteczka-shadow-green);
+      }
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    // Focus state
+    &:focus + .form-check-label::before {
+      box-shadow: var(--pesteczka-shadow-blue);
+      border-color: var(--pesteczka-blue);
+    }
+  }
+
+  // Radio button specific style
+  .form-check-input[type="radio"] {
+    & + .form-check-label {
+      &::before {
+        border-radius: 50%;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0.375rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0.5rem;
+        height: 0.5rem;
+        background-color: var(--pesteczka-dark);
+        border: 0;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+// Custom select arrow
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2300f2ff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
