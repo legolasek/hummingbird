@@ -1,0 +1,97 @@
+// =================================================================
+// Product Miniature / Product Thumbnail
+// Used on category pages, search results, homepage carousels etc.
+// =================================================================
+
+.product-miniature {
+  background: $card-bg;
+  border: $border-width solid $card-border-color;
+  border-radius: $card-border-radius;
+  text-align: center;
+  padding: 1rem;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  position: relative;
+
+  // Add a subtle glow on hover for a premium feel
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--pesteczka-shadow-blue);
+    border-color: $pesteczka-blue;
+  }
+
+  .thumbnail-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: $border-radius;
+    margin-bottom: 1rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.4s ease;
+    }
+  }
+
+  &:hover .thumbnail-container img {
+    transform: scale(1.1);
+  }
+
+  .product-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    height: 2.4em; // Ensure consistent height (2 lines)
+    overflow: hidden;
+
+    a {
+      color: $body-color;
+      text-decoration: none;
+
+      &:hover {
+        color: $pesteczka-green;
+      }
+    }
+  }
+
+  .product-price-and-shipping {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $pesteczka-green;
+    margin-bottom: 1rem;
+
+    .regular-price {
+      color: $pesteczka-gray;
+      text-decoration: line-through;
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .product-flags {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .product-flag {
+      background: var(--pesteczka-gradient-main);
+      color: $pesteczka-light;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: $border-radius-sm;
+      text-transform: uppercase;
+    }
+  }
+
+  .highlighted-informations {
+    // For "on sale" text etc.
+    color: $pesteczka-yellow;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+}

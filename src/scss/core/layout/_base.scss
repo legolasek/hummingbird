@@ -1,0 +1,36 @@
+// =================================================================
+// Basic HTML Element Styling
+// =================================================================
+
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  font-family: $font-family-sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headings-font-family;
+  font-weight: 700; // Bolder headings for a stronger look
+  color: $primary;
+
+  a {
+    color: inherit;
+  }
+}
+
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+}
+
+// Custom selection color for a more branded feel
+::selection {
+  background: $pesteczka-purple;
+  color: $pesteczka-light;
+}

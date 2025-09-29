@@ -1,0 +1,56 @@
+// =================================================================
+// Category & Product Listing Page Specific Styles
+// =================================================================
+
+#main .block-category {
+  // Styling for the category header (title, description, image)
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background-color: $surface-bg-1;
+  border: $border-width solid $border-color;
+  border-radius: $card-border-radius;
+  text-align: center;
+
+  .h1 {
+    color: $pesteczka-green;
+  }
+
+  .category-description {
+    font-size: 1rem;
+    color: $pesteczka-gray;
+  }
+}
+
+// Faceted search / Filters module
+#search_filters {
+  background-color: $surface-bg-1;
+  padding: 1.5rem;
+  border: $border-width solid $border-color;
+  border-radius: $card-border-radius;
+  margin-bottom: 2rem;
+
+  .h6 {
+    color: $pesteczka-light;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+// Sorting and display options
+.products-sort-order {
+  .select-title {
+    color: $pesteczka-gray;
+  }
+  .custom-select {
+    // Assuming a custom select dropdown styled elsewhere
+    // or it will inherit from form styles
+  }
+}
+
+// Product grid layout
+.products {
+  &.row {
+    // Adjust gutter/spacing if needed
+  }
+}

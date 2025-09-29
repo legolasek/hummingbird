@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // Import Google Font
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
 
@@ -9,6 +11,8 @@
 $pesteczka-purple: #7300ff;
 $pesteczka-blue: #00f2ff;
 $pesteczka-green: #9eff00;
+$pesteczka-yellow: #ffc107;
+$pesteczka-red: #dc3545;
 $pesteczka-dark: #1a1a2e;
 $pesteczka-light: #ffffff;
 $pesteczka-gray: #a0a0b0;
@@ -18,9 +22,11 @@ $pesteczka-gray: #a0a0b0;
   --pesteczka-purple: #{$pesteczka-purple};
   --pesteczka-blue: #{$pesteczka-blue};
   --pesteczka-green: #{$pesteczka-green};
+  --pesteczka-yellow: #{$pesteczka-yellow};
+  --pesteczka-red: #{$pesteczka-red};
   --pesteczka-dark: #{$pesteczka-dark};
-  --pesteczka-dark-rgb: #{red($pesteczka-dark)}, #{green($pesteczka-dark)}, #{blue($pesteczka-dark)};
-  --pesteczka-blue-rgb: #{red($pesteczka-blue)}, #{green($pesteczka-blue)}, #{blue($pesteczka-blue)};
+  --pesteczka-dark-rgb: #{color.channel($pesteczka-dark, "red")}, #{color.channel($pesteczka-dark, "green")}, #{color.channel($pesteczka-dark, "blue")};
+  --pesteczka-blue-rgb: #{color.channel($pesteczka-blue, "red")}, #{color.channel($pesteczka-blue, "green")}, #{color.channel($pesteczka-blue, "blue")};
   --pesteczka-light: #{$pesteczka-light};
   --pesteczka-gray: #{$pesteczka-gray};
 
@@ -39,32 +45,61 @@ $pesteczka-gray: #a0a0b0;
 // Bootstrap Variable Overrides
 // =================================================================
 
-// -- Global Colors
+// -- Global Colors & Theme Map
 $primary: $pesteczka-purple;
 $secondary: $pesteczka-blue;
 $success: $pesteczka-green;
+$warning: $pesteczka-yellow;
+$danger: $pesteczka-red;
 $body-bg: $pesteczka-dark;
 $body-color: $pesteczka-light;
 
-// -- Theme Colors Map
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
   "success": $success,
   "info": $pesteczka-blue,
-  "warning": #ffc107,
-  "danger": #dc3545,
+  "warning": $warning,
+  "danger": $danger,
   "light": $pesteczka-light,
   "dark": $pesteczka-dark
 );
+
+// -- Links
+$link-color: $pesteczka-blue;
+$link-decoration: none;
+$link-hover-color: $pesteczka-green;
+$link-hover-decoration: underline;
+
+// -- Spacing & Borders
+$border-width: 2px;
+$border-color: rgba($pesteczka-purple, 0.5);
+$border-radius: 0.2rem;
+$border-radius-sm: 0.1rem;
+$border-radius-lg: 0.4rem;
 
 // -- Font Overrides
 $font-family-sans-serif: 'Orbitron', sans-serif;
 $headings-font-family: 'Orbitron', sans-serif;
 $display-font-family: 'Orbitron', sans-serif;
 
+// -- Components
+// -- Surface & Component Colors
+$surface-bg-1: color.adjust($pesteczka-dark, $lightness: 2%); // Cards, headers, footers
+$surface-bg-2: color.adjust($pesteczka-dark, $lightness: 4%); // Lighter sections
+$surface-bg-3: color.adjust($pesteczka-dark, $lightness: 5%); // Inputs
+
+$card-bg: $surface-bg-1;
+$card-border-color: $border-color;
+$card-border-radius: $border-radius-lg;
+
+$modal-content-bg: $pesteczka-dark;
+$modal-content-border-color: $border-color;
+$modal-header-border-color: $border-color;
+$modal-footer-border-color: $modal-header-border-color;
+
 // -- Inputs and Forms Overrides
-$input-bg: lighten($pesteczka-dark, 5%);
+$input-bg: $surface-bg-3;
 $input-color: $pesteczka-light;
 $input-border-color: $pesteczka-purple;
 $input-placeholder-color: $pesteczka-gray;
@@ -76,7 +111,7 @@ $form-check-input-border: 1px solid $pesteczka-purple;
 $form-check-input-checked-bg-color: $pesteczka-green;
 $form-check-input-checked-border-color: $pesteczka-green;
 
-$form-select-bg: lighten($pesteczka-dark, 5%);
+$form-select-bg: $surface-bg-3;
 $form-select-color: $pesteczka-light;
 $form-select-border-color: $pesteczka-purple;
 $form-select-indicator-color: $pesteczka-blue;

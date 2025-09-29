@@ -1,0 +1,79 @@
+// =================================================================
+// Cart & Checkout Process Specific Styles
+// =================================================================
+
+.cart-overview {
+  // Summary of items in cart
+  background-color: $surface-bg-1;
+  border: $border-width solid $border-color;
+  border-radius: $card-border-radius;
+  padding: 1.5rem;
+
+  .cart-item {
+    border-bottom: 1px solid $border-color;
+    padding: 1rem 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.checkout-step {
+  // Style for each step in the checkout process
+  background-color: $surface-bg-1;
+  border: $border-width solid $border-color;
+  border-radius: $card-border-radius;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+
+  .step-title {
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $surface-bg-2;
+  }
+
+  .step-content {
+    padding: 1.5rem;
+  }
+
+  &.-current {
+    border-color: $pesteczka-blue;
+    box-shadow: var(--pesteczka-shadow-blue);
+  }
+
+  &.-complete {
+    .step-title {
+      color: $pesteczka-gray;
+    }
+  }
+}
+
+// Summary card on the side
+.cart-summary {
+  background-color: lighten($pesteczka-dark, 4%);
+  border: $border-width solid $border-color;
+  border-radius: $card-border-radius;
+  padding: 1.5rem;
+  position: sticky;
+  top: 100px; // Adjust based on header height
+
+  .cart-summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .cart-summary-totals {
+    border-top: 1px solid $border-color;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+}

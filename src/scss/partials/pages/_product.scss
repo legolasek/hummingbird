@@ -1,0 +1,100 @@
+// =================================================================
+// Product Detail Page Specific Styles
+// =================================================================
+
+#product-page {
+  .product-cover {
+    img {
+      border: $border-width solid $border-color;
+      border-radius: $card-border-radius;
+      background-color: $surface-bg-1;
+    }
+  }
+
+  .product-images {
+    .thumb-container {
+      border: $border-width solid transparent;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+
+      &.selected,
+      &:hover {
+        border-color: $pesteczka-blue;
+      }
+    }
+  }
+
+  .h1 {
+    font-size: 2.2rem;
+    color: $pesteczka-light;
+    margin-bottom: 1rem;
+  }
+
+  .product-prices {
+    background-color: $surface-bg-1;
+    padding: 1rem;
+    border-radius: $border-radius;
+    border: $border-width solid $border-color;
+    margin-bottom: 1.5rem;
+
+    .current-price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: $pesteczka-green;
+    }
+
+    .regular-price {
+      color: $pesteczka-gray;
+      text-decoration: line-through;
+      font-size: 1.2rem;
+    }
+  }
+
+  #product-description-short {
+    margin-bottom: 1.5rem;
+    color: $pesteczka-gray;
+    line-height: 1.6;
+  }
+
+  .product-add-to-cart {
+    .add-to-cart {
+      // Use styles for .btn-primary from Bootstrap,
+      // which should already be themed.
+      // We can add extra styling if needed.
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+    }
+  }
+
+  .product-information {
+    // Tabs for description, details, etc.
+    .tabs {
+      .nav-tabs {
+        border-bottom-color: $border-color;
+
+        .nav-link {
+          color: $pesteczka-gray;
+          background: transparent;
+          border: none;
+          border-bottom: 2px solid transparent;
+
+          &.active,
+          &:hover {
+            color: $pesteczka-green;
+            border-bottom-color: $pesteczka-green;
+          }
+        }
+      }
+
+      .tab-content {
+        padding: 1.5rem;
+        background-color: $surface-bg-1;
+        border: $border-width solid $border-color;
+        border-top: none;
+        border-radius: 0 0 $card-border-radius $card-border-radius;
+      }
+    }
+  }
+}

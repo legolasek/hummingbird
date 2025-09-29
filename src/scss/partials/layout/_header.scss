@@ -1,0 +1,30 @@
+// =================================================================
+// Site Header
+// =================================================================
+
+header {
+  background-color: $surface-bg-1;
+  border-bottom: $border-width solid $border-color;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1030; // Bootstrap's standard for sticky headers
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  // Branding / Logo
+  #_desktop_logo {
+    img {
+      max-height: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+}

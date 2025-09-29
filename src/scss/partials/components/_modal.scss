@@ -1,0 +1,46 @@
+// =================================================================
+// Modal Component
+// Overrides for Bootstrap's modal
+// =================================================================
+
+.modal-content {
+  background-color: $modal-content-bg;
+  border: $border-width solid $modal-content-border-color;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+}
+
+.modal-header {
+  border-bottom: $border-width solid $modal-header-border-color;
+  padding: 1rem 1.5rem;
+
+  .modal-title {
+    color: $pesteczka-light;
+    font-family: $headings-font-family;
+    font-size: 1.5rem;
+  }
+
+  .btn-close {
+    background: transparent;
+    border: 0;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    filter: invert(1) grayscale(100%) brightness(200%); // Make it white
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  border-top: $border-width solid $modal-footer-border-color;
+  padding: 1rem 1.5rem;
+  background-color: lighten($pesteczka-dark, 2%);
+  border-radius: 0 0 $border-radius-lg $border-radius-lg;
+}

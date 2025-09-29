@@ -1,0 +1,55 @@
+// =================================================================
+// Customer Account Pages Specific Styles
+// =================================================================
+
+#customer-account-page {
+  .page-content {
+    display: flex;
+    gap: 2rem;
+  }
+
+  // Left-side navigation for account sections
+  .account-nav {
+    flex: 0 0 250px; // Fixed width for the navigation panel
+    background-color: $surface-bg-1;
+    border: $border-width solid $border-color;
+    border-radius: $card-border-radius;
+    padding: 1rem;
+
+    .nav-link {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: $pesteczka-gray;
+      border-radius: $border-radius;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+
+      i {
+        margin-right: 0.5rem;
+      }
+
+      &:hover {
+        color: $pesteczka-green;
+        background-color: rgba($pesteczka-purple, 0.2);
+      }
+
+      &.active {
+        color: $pesteczka-light;
+        font-weight: 700;
+        border-left-color: $pesteczka-green;
+      }
+    }
+  }
+
+  // Main content area for account details
+  .account-content {
+    flex-grow: 1;
+
+    .order-history, .addresses-list {
+      .card {
+        // Uses the card styles defined in _variables.scss
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+}

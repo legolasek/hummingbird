@@ -1,3 +1,12 @@
+// =================================================================
+// Partials - Re-usable components, layout sections, and page-specific styles
+// =================================================================
+
+// General partials
 @import "fonts";
-@import "commons";
 @import "helpers";
+
+// Organized partials
+@import "components"; // Re-usable UI components (buttons, cards, etc.)
+@import "layout";     // Major layout sections (header, footer, navigation)
+@import "pages";      // Page-specific styles (homepage, product page, etc.)
